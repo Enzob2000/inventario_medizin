@@ -1,3 +1,5 @@
+import "dart:ffi";
+
 import "package:inventario_medizin/config/services/service_locator.dart";
 import "package:inventario_medizin/domain/datasources/datasour_users.dart";
 import "package:inventario_medizin/domain/repositories/repository_users.dart";
@@ -17,3 +19,12 @@ Future<User> userData(UserDataRef ref) async{
 
   return user;
 }
+
+@Riverpod(keepAlive: true)
+// ignore: deprecated_member_use_from_same_package
+bool notification(NotificationRef ref) {
+  
+
+  return true;
+}
+
