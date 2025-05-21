@@ -7,14 +7,11 @@ import 'package:inventario_medizin/infrastructure/datasources/datasour_user_impl
 import 'package:inventario_medizin/presentation/providers/users/provider_users.dart';
 import 'package:inventario_medizin/presentation/widget/shape/appbar/custom_PopupMenuItem_action.dart';
 import 'package:inventario_medizin/presentation/widget/shape/appbar/custom_texfild_search.dart';
-
+import 'package:inventario_medizin/presentation/widget/shape/appbar/custon_popupnoti.dart';
 
 class Appbar_screen extends ConsumerWidget {
-  
-
   @override
-  Widget build(BuildContext context,ref) {
-
+  Widget build(BuildContext context, ref) {
     final Color colorScheme = Theme.of(context).colorScheme.primary;
     final user = ref.watch(userDataProvider);
     final notification = ref.watch(notificationProvider);
@@ -53,19 +50,12 @@ class Appbar_screen extends ConsumerWidget {
         badges.Badge(
           position: badges.BadgePosition.topEnd(top: 5, end: 8),
           badgeContent: const SizedBox(),
-        
+
           showBadge: notification,
-          child: IconButton(
-            onPressed: () {},
-            icon: Image.asset(
-              "assets/icons/icon_notificasion.png",
-              height: 20,
-              width: 20,
-            ),
-          ),
+          child: Custon_popupmenunotify(),
         ),
         const SizedBox(width: 10),
-    
+
         SizedBox(
           child: Row(
             children: [
@@ -101,7 +91,7 @@ class Appbar_screen extends ConsumerWidget {
                         fontWeight: FontWeight.w700,
                       ),
                     ),
-    
+
                     Text(
                       user.when(
                         data: (data) => data.cargo,
@@ -125,7 +115,4 @@ class Appbar_screen extends ConsumerWidget {
     );
   }
 }
-
-
-
 
