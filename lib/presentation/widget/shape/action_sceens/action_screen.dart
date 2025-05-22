@@ -50,7 +50,18 @@ class ActionsMenu extends StatelessWidget {
               index: item.index,
             );
           }),
-    
+
+          const SizedBox(
+            height: 145,
+          ),
+        ...menuconfig.map((item) {
+            return Menuaction(
+              icon: item.icon,
+              action: item.action,
+              namescreen: item.namescreen,
+              index: item.index,
+            );
+          }),
           
           ],
       ),

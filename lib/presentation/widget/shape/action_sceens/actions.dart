@@ -120,3 +120,18 @@ final List<MenuItem> menuauxil = [
   ),
   
 ];
+
+
+final List<MenuItem> menuconfig = [
+  MenuItem(
+    icon: "assets/icons/icon_configura.svg",
+    action: "Configuraciones",
+    index: 8,
+  ),
+  MenuItem(
+    icon: "assets/icons/Icons_cerrar_sesion.svg",
+    action: "Cerrar sesión",
+    index: 9,
+  ),
+  
+];

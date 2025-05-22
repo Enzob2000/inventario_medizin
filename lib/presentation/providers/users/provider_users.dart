@@ -1,12 +1,12 @@
-import "dart:ffi";
-import "package:flutter/cupertino.dart";
+
 import "package:flutter_riverpod/flutter_riverpod.dart";
 import "package:inventario_medizin/config/services/service_locator.dart";
-import "package:inventario_medizin/domain/datasources/datasour_users.dart";
+
 import "package:inventario_medizin/domain/repositories/repository_users.dart";
 import "package:inventario_medizin/domain/use_case/use_case_users.dart";
 import "package:inventario_medizin/infrastructure/datasources/datasour_user_impl.dart";
-import "package:inventario_medizin/infrastructure/repositories/repository_user_impl.dart";
+
+import "package:inventario_medizin/presentation/widget/home/card_total.dart";
 import "package:riverpod/riverpod.dart";
 import "package:riverpod_annotation/riverpod_annotation.dart";
 
@@ -38,5 +38,59 @@ class ActionsMenu extends _$ActionsMenu {
   void setIndex(int index) {
     state = index;
   }
-  
+}
+
+@Riverpod(keepAlive: true)
+// ignore: deprecated_member_use_from_same_package
+int notificationcount(Ref ref) {
+  return 3;
+}
+
+@Riverpod(keepAlive: true)
+// ignore: deprecated_member_use_from_same_package
+Cardtotal totalusuarios(Ref ref) {
+  return Cardtotal(
+    nombre: "Total Usuarios",
+    cantidad: 40.333,
+    porcentaje: 8,
+    ascendente: true,
+    icono: "assets/icons/icon_total_usu.svg",
+  );
+}
+
+@Riverpod(keepAlive: true)
+// ignore: deprecated_member_use_from_same_package
+Cardtotal totalordenes(Ref ref) {
+  return Cardtotal(
+    nombre: "Total de Ordenes",
+    cantidad: 20.333,
+    porcentaje: 5,
+    ascendente: false,
+    icono: "assets/icons/Icons_total_orde.svg",
+  );
+}
+
+@Riverpod(keepAlive: true)
+// ignore: deprecated_member_use_from_same_package
+Cardtotal totalventas(Ref ref) {
+
+  return Cardtotal(
+    nombre: "Total de Ventas",
+    cantidad: 30.3,
+    porcentaje: 10,
+    ascendente: true,
+    icono: "assets/icons/icon_total_ventas.svg",
+  );
+}
+
+@Riverpod(keepAlive: true)
+// ignore: deprecated_member_use_from_same_package
+Cardtotal totalpendientes(Ref ref) {
+  return Cardtotal(
+    nombre: "Total Pendientes",
+    cantidad: 50.444,
+    porcentaje: 15,
+    ascendente: false,
+    icono: "assets/icons/icon_total_pedientes.svg",
+  );
 }

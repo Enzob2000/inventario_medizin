@@ -21,32 +21,41 @@ class Appbar_screen extends ConsumerWidget {
           760, // Asegúrate de que este ancho sea suficiente para todos los widgets.
       toolbarHeight: 75,
       backgroundColor: const Color(0xFFFFFFFF),
-      leading: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 35.0, vertical: 10),
-        // Elimina el Expanded de aquí y usa directamente un Row.
-        child: Row(
-          children: [
-            SvgPicture.asset("assets/logos/logosvg.svg"),
-            const SizedBox(width: 90),
-            IconButton(
-              icon: Image.asset(
-                'assets/icons/3_barras.png',
-                width: 24,
-                height: 24,
+      leading:SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 35.0, vertical: 10),
+          // Elimina el Expanded de aquí y usa directamente un Row.
+          child: Row(
+            children: [
+              SvgPicture.asset("assets/logos/logosvg.svg"),
+              const SizedBox(width: 90),
+              IconButton(
+                icon: Image.asset(
+                  'assets/icons/3_barras.png',
+                  width: 24,
+                  height: 24,
+                ),
+                padding: EdgeInsets.zero,
+                onPressed: () {
+                  print("Botón con imagen pulsado");
+                },
               ),
-              padding: EdgeInsets.zero,
-              onPressed: () {
-                print("Botón con imagen pulsado");
-              },
-            ),
-            const SizedBox(width: 30),
-            // Envuelve el campo de texto en Expanded para que se ajuste al espacio restante.
-            CustomTextField(),
-          ],
+              const SizedBox(width: 30),
+              // Envuelve el campo de texto en Expanded para que se ajuste al espacio restante.
+              CustomTextField(),
+            ],
+          ),
         ),
       ),
       actionsPadding: const EdgeInsets.only(right: 20),
       actions: [
+        SizedBox(
+          child: SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                
         badges.Badge(
           position: badges.BadgePosition.topEnd(top: 5, end: 8),
           badgeContent: const SizedBox(),
@@ -111,6 +120,10 @@ class Appbar_screen extends ConsumerWidget {
           ),
         ),
         Moreactions(),
+              ],
+            ),
+          ),
+        )
       ],
     );
   }

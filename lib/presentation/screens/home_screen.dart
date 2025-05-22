@@ -1,26 +1,96 @@
-import 'package:flutter/material.dart';
-import 'package:inventario_medizin/presentation/widget/shape/appbar/appbar.dart';
-import 'package:inventario_medizin/presentation/widget/shape/action_sceens/action_screen.dart' as ActionsMenu;
 
-class HomeScreen extends StatelessWidget {
+
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:inventario_medizin/presentation/providers/users/provider_users.dart';
+import 'package:inventario_medizin/presentation/widget/home/card_total.dart';
+import 'package:inventario_medizin/presentation/widget/shape/appbar/appbar.dart';
+import 'package:inventario_medizin/presentation/widget/shape/action_sceens/action_screen.dart'
+    as ActionsMenu;
+
+class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
 
   static const String name = "Homescreen";
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, ref) {
+    final totalusuarios = ref.watch(totalusuariosProvider);
+    final totalordenes = ref.watch(totalordenesProvider);
+    final totalventas = ref.watch(totalventasProvider);
+    final totalpendintes = ref.watch(totalpendientesProvider);
+
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(75.0), // define la altura deseada
         child: Appbar_screen(),
       ),
-
+      backgroundColor: Color(0xFFF5F6FA),
       body: SingleChildScrollView(
-        child: Row(
-          children: [
-            // Ensure ActionsMenu is a widget or wrap/replace as needed
-           ActionsMenu.ActionsMenu()// Reemplaza esto con tu widget ActionsMenu
-          ],
+        scrollDirection: Axis.horizontal,
+        child: SingleChildScrollView(
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // Ensure ActionsMenu is a widget or wrap/replace as needed
+              ActionsMenu.ActionsMenu(),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  vertical: 20.0,
+                  horizontal: 30,
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Panel de control",
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.w600,
+                        color: Color(0xFF202224),
+                      ),
+                    ),
+                    Row(
+                      spacing: 20,
+                      children: [
+                        Card_total(
+                          nombre: totalusuarios.nombre,
+                          cantidad: totalusuarios.cantidad,
+                          porcentaje: totalusuarios.porcentaje, 
+                          ascendente: totalusuarios.ascendente,
+                          icono: totalusuarios.icono,
+                          
+                        ),
+        
+                        Card_total(
+                          nombre: totalordenes.nombre,
+                          cantidad: totalordenes.cantidad,
+                          porcentaje: totalordenes.porcentaje,
+                          ascendente: totalordenes.ascendente,
+                          icono: totalordenes.icono,
+                        ),
+                        Card_total(
+                          nombre: totalventas.nombre,
+                          cantidad: totalventas.cantidad,
+                          porcentaje: totalventas.porcentaje,
+                          ascendente: totalventas.ascendente,
+                          icono: totalventas.icono,
+                        ),
+                        Card_total(
+                          nombre: totalpendintes.nombre,
+                          cantidad: totalpendintes.cantidad,
+                          porcentaje: totalpendintes.porcentaje,
+                          ascendente: totalpendintes.ascendente,
+                          icono: totalpendintes.icono,
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ), // Reemplaza esto con tu widget ActionsMenu
+            ],
+          ),
         ),
       ), // Resto del contenido de la pantalla.
     );

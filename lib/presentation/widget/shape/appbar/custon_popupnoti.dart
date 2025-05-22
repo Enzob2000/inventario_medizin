@@ -1,10 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' as badge;
 import 'package:flutter/widgets.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:inventario_medizin/presentation/providers/users/provider_users.dart';
 
-class Custon_popupmenunotify extends StatelessWidget {
+class Custon_popupmenunotify extends ConsumerWidget {
+  
+  
+
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context,ref) {
+
+    final notify=ref.watch(notificationProvider);
+    final countnotification=ref.watch(notificationcountProvider);
+
+
     return PopupMenuButton(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
       offset: Offset(0, 50),
@@ -67,8 +78,13 @@ class Custon_popupmenunotify extends StatelessWidget {
                     children: [
                       CircleAvatar(
                         backgroundColor: const Color(0xFF19D8EA),
-                        child: SvgPicture.asset(
-                          "assets/icons/icon_nuevo_pedido.svg",
+                        child: badge.Badge(
+                          offset: Offset(15, -15),
+                          isLabelVisible: notify,
+                          label:  Text("$countnotification"),
+                          child: SvgPicture.asset(
+                            "assets/icons/icon_nuevo_pedido.svg",
+                          ),
                         ),
                       ),
                       Padding(
