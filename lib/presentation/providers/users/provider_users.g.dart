@@ -124,6 +124,24 @@ final totalpendientesProvider = Provider<Cardtotal>.internal(
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef TotalpendientesRef = ProviderRef<Cardtotal>;
+String _$detallesPromosHash() => r'f509bcbbd1769a22ca77a145e269d59d08e13f4e';
+
+/// See also [detallesPromos].
+@ProviderFor(detallesPromos)
+final detallesPromosProvider = Provider<List<DetallePromocion>>.internal(
+  detallesPromos,
+  name: r'detallesPromosProvider',
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$detallesPromosHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+typedef DetallesPromosRef = ProviderRef<List<DetallePromocion>>;
 String _$actionsMenuHash() => r'2fd2b9d5f8b8d8b34de88ab642dd3762c8bd0ef3';
 
 /// See also [ActionsMenu].
