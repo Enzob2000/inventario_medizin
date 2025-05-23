@@ -3,13 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:inventario_medizin/infrastructure/datasources/datasour_user_impl.dart';
 import 'package:inventario_medizin/presentation/providers/users/provider_users.dart';
 import 'package:inventario_medizin/presentation/widget/shape/appbar/custom_PopupMenuItem_action.dart';
 import 'package:inventario_medizin/presentation/widget/shape/appbar/custom_texfild_search.dart';
 import 'package:inventario_medizin/presentation/widget/shape/appbar/custon_popupnoti.dart';
 
-class Appbar_screen extends ConsumerWidget {
+class Appbarscreen extends ConsumerWidget {
+  const Appbarscreen({super.key});
+
   @override
   Widget build(BuildContext context, ref) {
     final Color colorScheme = Theme.of(context).colorScheme.primary;
@@ -38,7 +39,7 @@ class Appbar_screen extends ConsumerWidget {
                 ),
                 padding: EdgeInsets.zero,
                 onPressed: () {
-                  print("Botón con imagen pulsado");
+                  
                 },
               ),
               const SizedBox(width: 30),

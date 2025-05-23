@@ -3,9 +3,8 @@ import "package:inventario_medizin/config/services/service_locator.dart";
 import "package:inventario_medizin/domain/repositories/repository_users.dart";
 import "package:inventario_medizin/domain/use_case/use_case_users.dart";
 import "package:inventario_medizin/infrastructure/datasources/datasour_user_impl.dart";
-import "package:inventario_medizin/presentation/screens/home_screen.dart";
 import "package:inventario_medizin/presentation/widget/home/card_total.dart";
-import "package:riverpod/riverpod.dart";
+import "package:inventario_medizin/presentation/widget/home/medicadetallepromo.dart";
 import "package:riverpod_annotation/riverpod_annotation.dart";
 
 part 'provider_users.g.dart';

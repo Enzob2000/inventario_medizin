@@ -1,11 +1,8 @@
-import 'dart:ui';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:inventario_medizin/presentation/widget/shape/action_sceens/actions.dart';
 
-class ActionsMenu extends StatelessWidget {
-  const ActionsMenu({
+class Menuactions extends StatelessWidget {
+  const Menuactions({
     super.key,
   });
 
