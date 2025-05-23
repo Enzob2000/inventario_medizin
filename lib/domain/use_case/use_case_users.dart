@@ -9,9 +9,6 @@ class UseCaseUsers {
 UseCaseUsers({ required this.repository});
 
   Future<User> getUserData() async {
-
-
-
     return repository.getUserData();
   }
 }

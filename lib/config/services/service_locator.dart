@@ -3,6 +3,10 @@ import 'package:inventario_medizin/domain/datasources/datasour_users.dart';
 import 'package:inventario_medizin/domain/repositories/repository_users.dart';
 import 'package:inventario_medizin/infrastructure/datasources/datasour_user_impl.dart';
 import 'package:inventario_medizin/infrastructure/repositories/repository_user_impl.dart';
+import 'package:inventario_medizin/domain/datasources/datasource_company.dart';
+import 'package:inventario_medizin/domain/repositories/repository_company.dart';
+import 'package:inventario_medizin/infrastructure/datasources/datasource_company_impl.dart';
+import 'package:inventario_medizin/infrastructure/repositories/repository_company_impl.dart';
 
 final getIt = GetIt.instance;
 
@@ -11,4 +15,9 @@ void setupLocator() {
   getIt.registerSingleton<UserDatasource>(UserDatasourceimpl());
   getIt.registerLazySingleton<UserRepository>(() => RepositoryUserImpl(
      datasour: getIt<UserDatasource>()));
+    //use_case_company
+     getIt.registerSingleton<DatasourceCompany>(DatasourceCompanyImpl());
+  getIt.registerLazySingleton<RepositoryCompany>(
+    () => RepositoryCompanyImpl(datasour: getIt<DatasourceCompany>()),
+  );
 }
