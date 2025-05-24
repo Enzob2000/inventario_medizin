@@ -1,11 +1,13 @@
 import "package:go_router/go_router.dart";
+import "package:inventario_medizin/presentation/screens/home/caja_ventas_screen.dart";
+import "package:inventario_medizin/presentation/screens/home/cajita_screen.dart";
 import "package:inventario_medizin/presentation/screens/home/home_screen.dart";
 import "package:inventario_medizin/presentation/screens/iniciosesion.dart/inicio_sesion_screen.dart";
 import "package:inventario_medizin/presentation/screens/register/register_screen.dart";
 import "package:inventario_medizin/presentation/screens/verificacioncorreo.dart/verificacion_correo_screen.dart";
 
 final appRouter = GoRouter(
-  initialLocation: "/iniciosesion",
+  initialLocation: "/cajita",
 
   routes: [
     GoRoute(
@@ -27,6 +29,16 @@ final appRouter = GoRouter(
       path: "/iniciosesion",
       name: InicioSesionScreen.name,
       builder: (context, state) => InicioSesionScreen(),
+    ),
+    GoRoute(
+      path: "/caja",
+      name: CajaVentasScreen.name,
+      builder: (context, state) => CajaVentasScreen(),
+    ),
+     GoRoute(
+      path: "/cajita",
+      name: ProductTableApp.name,
+      builder: (context, state) => ProductTableApp(),
     ),
   ],
 );

@@ -5,8 +5,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:inventario_medizin/infrastructure/datasources/datasour_user_impl.dart';
 import 'package:inventario_medizin/presentation/providers/users/provider_users.dart';
-import 'package:inventario_medizin/presentation/widget/shape/appbar/custom_PopupMenuItem_action.dart';
-import 'package:inventario_medizin/presentation/widget/shape/appbar/custom_texfild_search.dart';
+import 'package:inventario_medizin/presentation/widget/shape/appbar_register/custom_PopupMenuItem_action.dart';
+import 'package:inventario_medizin/presentation/widget/shape/appbar_register/custom_texfild_search.dart';
 
 
 class Appbar_screen extends ConsumerWidget {
